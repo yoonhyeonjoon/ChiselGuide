@@ -14,7 +14,7 @@ example package path :scala/chiselExample/exampleModule/queue/asyncExample/runne
 <br/> 
 
 <p align="center">
-  <img src="lec2/pic1.png" />
+  <img src="lec02/pic1.png" />
 </p>
 
 
@@ -24,7 +24,7 @@ example package path :scala/chiselExample/exampleModule/queue/asyncExample/runne
 <br/> 
 
 <p align="center">
-  <img src="lec2/pic2.png" />
+  <img src="lec02/pic2.png" />
 </p>
 
 
@@ -111,7 +111,7 @@ Transfer occurs when both ready & valid in same cycle
 <br/>
 
 <p align="center">
-  <img src="lec2/pic3.png" />
+  <img src="lec02/pic3.png" />
 </p>
 
 
@@ -128,7 +128,7 @@ Transfer occurs when both ready & valid in same cycle
 ###  **IO feature**
 
 <p align="center">
-  <img src="lec2/pic4.png" />
+  <img src="lec02/pic4.png" />
 </p>
 
 
@@ -138,7 +138,7 @@ Transfer occurs when both ready & valid in same cycle
 <br/><br/><br/>
 
 <p align="center">
-  <img src="lec2/pic5.png" />
+  <img src="lec02/pic5.png" />
 </p>
 
 
@@ -152,7 +152,7 @@ Transfer occurs when both ready & valid in same cycle
 ###  **Basic Handshake model scheme**
 
 <p align="center">
-  <img src="lec2/pic6.png" />
+  <img src="lec02/pic6.png" />
 </p>
 
 
@@ -177,7 +177,7 @@ val generatedClock = ClockDivider(baseClock, 4)
 ```
 
 <p align="center">
-  <img src="lec2/pic8.png" />
+  <img src="lec02/pic8.png" />
 </p>
 
 
@@ -245,7 +245,7 @@ package path :scala/chiselExample/exampleModule/queue/asyncExample/TransmitModul
 <br/>
 
 <p align="center">
-  <img src="lec2/pic9.png" />
+  <img src="lec02/pic9.png" />
 </p>
 
 
@@ -254,7 +254,7 @@ package path :scala/chiselExample/exampleModule/queue/asyncExample/TransmitModul
 <br />
 
 <p align="center">
-  <img src="lec2/pic10.png" />
+  <img src="lec02/pic10.png" />
 </p>
 
 

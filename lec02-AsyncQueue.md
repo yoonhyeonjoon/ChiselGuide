@@ -1,8 +1,9 @@
+
 # Scala Chisel Lecture 2 - AsyncCrossing
 
 guide Repository of this lecture : https://github.com/yoonhyeonjoon/gradleRocketchip
 
-example package path :scala/chiselExample/exampleModule/queue/asyncExample/runner/AsyncCrossing.scala 
+example package path :scala/chiselExample/exampleModule/queue/asyncExample/runner/AsyncCrossing.scala
 
 <br/> 
 
@@ -12,24 +13,29 @@ example package path :scala/chiselExample/exampleModule/queue/asyncExample/runne
 <br/> 
 <br/> 
 
-![pic1.png](lec2/pic1.png)
+<p align="center">
+  <img src="lec2/pic1.png" />
+</p>
 
 
-### <center> rough sketch</center>  
-
-<br/> 
-<br/> 
-
-![pic2.png](lec2/pic2.png)
-
-### <center> example Result </center>  
-
-<center> (tx and rx clock get different frequencies and the timing is controlled by ready/valid signals) </center>
+<h3 align="center"> rough sketch </h3>
 
 <br/> 
 <br/> 
 
-## 1.  AsyncCrossing 
+<p align="center">
+  <img src="lec2/pic2.png" />
+</p>
+
+
+<h3 align="center">  example Result </h3>
+
+<p align="center">  (tx and rx clock get different frequencies and the timing is controlled by ready/valid signals) </p>
+
+<br/> 
+<br/> 
+
+## 1.  AsyncCrossing
 
 <br/>
 This **asyncCrossing module** Scala code describes "rough sketch" seen above.
@@ -68,17 +74,17 @@ class AsyncCrossing extends Module {
 
 
 1. The module ClockDivider generates a clock different from the default clock. So it creates fake clocks, and lets the modules run at different frequencies so we can test it
-<br/>
+   <br/>
 
-2. TransmitModule(tx) and ReceiveModule(rx) have their own clock. and each module has to be inside of **withClockAndReset(or 
-withClock)** if they are desired to be operated by their own clock.
-<br/>
+2. TransmitModule(tx) and ReceiveModule(rx) have their own clock. and each module has to be inside of **withClockAndReset(or
+   withClock)** if they are desired to be operated by their own clock.
+   <br/>
 
 3. **AsyncQueue[T <: Data]** is provided method in the rocketchip.util. You can use this one for this example AsyncCrossing
-<br/>
+   <br/>
 
 4. async_crossing(: AsyncQueue) IO must binding enq/deq decoupled and clocks
-<br/>
+   <br/>
 
 5. **":="** makes simple binding. **"<>"** makes bi-directionally bulk connecting
 
@@ -104,14 +110,16 @@ Transfer occurs when both ready & valid in same cycle
 ### **Protocol sceme**
 <br/>
 
-![pic3.png](lec2/pic3.png)
+<p align="center">
+  <img src="lec2/pic3.png" />
+</p>
 
 
 <br/>
 <br/>
 
 
-### <center> Producer & Consumer linked with Ready/Valid protocol  </center>  
+<h3 align="center">  Producer & Consumer linked with Ready/Valid protocol  </h3>
 
 <br/>
 <br/>
@@ -119,17 +127,23 @@ Transfer occurs when both ready & valid in same cycle
 
 ###  **IO feature**
 
-![pic4.png](lec2/pic4.png)
+<p align="center">
+  <img src="lec2/pic4.png" />
+</p>
 
-### <center> Input/Output bundle is supplied as "Decoupled"  </center>  
+
+<h3 align="center">  Input/Output bundle is supplied as "Decoupled"  </h3>
 
 
 <br/><br/><br/>
 
-![pic5.png](lec2/pic5.png)
+<p align="center">
+  <img src="lec2/pic5.png" />
+</p>
 
 
-####  <center> If you declare Decoupled IO, the above three signals(input ready,output valid, out bits) are generated in the module  </center>
+
+<h3 align="center">  If you declare Decoupled IO, the above three signals(input ready,output valid, out bits) are generated in the module  </h3>
 
 <br/><br/>
 
@@ -137,31 +151,35 @@ Transfer occurs when both ready & valid in same cycle
 
 ###  **Basic Handshake model scheme**
 
-![pic6.png](lec2/pic6.png)
-
-### <center> Producer & Consumer attached bundle model </center>  
-
-
+<p align="center">
+  <img src="lec2/pic6.png" />
+</p>
 
 
+<h3 align="center">  Producer & Consumer attached bundle model </h3>
 
 
+
+
+
+<br/><br/><br/>
 
 ## 3.  ClockDivider
 
 package path :scala/functional/ClockDivider.scala
 
-
 <br/>
 
-### usage example 
+### usage example
 
 ``` scala
 val generatedClock = ClockDivider(baseClock, 4)
-
 ```
 
-![pic8.png](lec2/pic8.png)
+<p align="center">
+  <img src="lec2/pic8.png" />
+</p>
+
 
 
 
@@ -226,22 +244,27 @@ package path :scala/chiselExample/exampleModule/queue/asyncExample/TransmitModul
 
 <br/>
 
-![pic9.png](lec2/pic9.png)
+<p align="center">
+  <img src="lec2/pic9.png" />
+</p>
 
-### <center> Primenumber Generator module </center>  
+
+<h3 align="center">  Primenumber Generator module </h3>
 
 <br />
 
-![pic10.png](lec2/pic10.png)
+<p align="center">
+  <img src="lec2/pic10.png" />
+</p>
 
-### <center> Transmit Module </center>  
 
+<h3 align="center">  Transmit Module </h3>
 
 <br/><br/><br/><br/><br/><br/>
 
 ### **source code**
 
-<br/><br/>
+<br/>
 
 **TransmitModule.scala**
 ``` scala
@@ -295,7 +318,6 @@ class TransmitModule extends Module {
 <br/>
 
 **ReceiveModule.scala**
-
 <br/>
 
 ``` scala 

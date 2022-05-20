@@ -8,7 +8,7 @@ https://github.com/agile-hw/lectures/
 
 example package path :scala/chiselExample/exampleModule/queue/agilehwQueue
 
-### Assessing MyQueue V0
+### V0 - First Attempt at Queue
 
 - Accomplished
    - Implements queueing behavior
@@ -19,7 +19,9 @@ example package path :scala/chiselExample/exampleModule/queue/agilehwQueue
 ![img.png](lec03/queue0.png)
 <h4 align="center">  MyQueue V0 </h4>
 
-### Assessing MyQueue V1
+<br><br><br>
+
+### V1 - Parameterizing Number of Queue Entries
 - Accomplished
    - Implements queueing behavior
    - Parameterized data width & number of entries
@@ -27,12 +29,20 @@ example package path :scala/chiselExample/exampleModule/queue/agilehwQueue
    - Long latency when queue is empty (all elements go through all entries)
    - Not good at handling bubbles midway (might even be buggy)
 
-<br>
+
 
 ![img.png](lec03/queue1.png)
 <h4 align="center">  MyQueue V1 </h4>
 
-### Assessing MyQueue V2 - Priority Encoder
+
+<br><br><br>
+
+### Squishing Bubbles in Queue
+- Use a Priority Encoder to squeeze out bubbles
+  - Insert in first free slot
+
+
+###  Using Priority Encoder for Insertion
 - Accomplished
    - Implements queueing behavior
    - Parameterized data width & number of entries
@@ -42,15 +52,14 @@ example package path :scala/chiselExample/exampleModule/queue/agilehwQueue
    - Power Efficiency: lots of bits shifting
    - Potential Critical Path: priority encoder logic depth
 
-### Squishing Bubbles in Queue
-- Use a Priority Encoder to squeeze out bubbles
-   - Insert in first free slot
 
 ![img_1.png](lec03/queue2_1.png)
 <h4 align="center">  MyQueue V2 </h4>
 
 ![img_2.png](lec03/queue2_2.png)
 <h4 align="center">  Operating Step of V2 </h4>
+
+<br><br><br><br>
 
 ### Keeping Data in Place with a Circular Buffer
 - Circular buffer uses two pointers (indices) and fixed size storage to make a FIFO
@@ -62,7 +71,7 @@ example package path :scala/chiselExample/exampleModule/queue/agilehwQueue
 
 <br>
 
-### Assessing MyQueue V3
+### V3 - Keeping Data in Place with Circular Buffer
 - Accomplished
    - Implements queueing behavior
    - Parameterized data width & number of entries
@@ -83,14 +92,26 @@ example package path :scala/chiselExample/exampleModule/queue/agilehwQueue
   - If indices are equal and !maybeFull => empty <Br>
   - If indices are not equal => not full or empty (has room)
 
-<br>
 
+### V4 - Adding State (maybeFull) Track Last Entry
+- Accomplished
+  - Implements queueing behavior
+  - Parameterized data width & number of entries (can now use all of them all)
+  - Latency based on occupancy
+  - Efficiency? Less bits shifting and shallower logic
+- Shortcommings
+  - Capacity: must be power of 2
+  - Performance: can't simultaneously enqueue/dequeue to a full queue
+
+<br>
 
 ![img.png](lec03/queue4.png)
 <h4 align="center">  buffer example </h4>
 
 
-### Assessing MyQueue V5
+<br><br><br>
+
+### V5 - Simultaneous Enqueue/Dequeue When Full
 
 - Accomplished
    - Implements queueing behavior
@@ -103,6 +124,8 @@ example package path :scala/chiselExample/exampleModule/queue/agilehwQueue
    - Possible combinational loop more likely with io.enq.ready now attached to io.deq.ready
 
 <br>
+
+<br><br>
 
 ### V6 - Tidying up Code
 - Assessing MyQueue V6

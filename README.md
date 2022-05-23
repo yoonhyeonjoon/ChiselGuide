@@ -15,7 +15,7 @@ Chisel is powered by [FIRRTL](https://github.com/chipsalliance/firrtl) (Flexible
 #### Scala is almost same with kotlin, they have so many overlapping points in the view of grammar, coding style, and so on. so Chisel can be easy way to generate Hardware RTL for Software engineer
 
 
-## 2. What does this page guide?
+## 2. What does this page guide for?
 
 this repository is a guide for open library [gradleRocketchip](https://github.com/yoonhyeonjoon/gradleRocketchip)
 
@@ -27,10 +27,12 @@ and if you are not familiar with basic theories and grammar of Scala, this [gith
 
 ## 3. Lecture Link
 
+<br>
+
 [Lec 01 - RocketChip build guide to generate Verilog](lec01-SettingGuide.md)
-<br>
+<br><br>
 [Lec 02 - Build file and Check the wave form using AysncQueue Example](lec02-AsyncQueue.md)
-<br>
+<br><br>
 [Lec 03 - Code Following using Queue Example ](lec03-Queue.md)
 
 

@@ -10,7 +10,7 @@ For more information on the benefits of Chisel see: ["What benefits does Chisel 
 
 Chisel is powered by [FIRRTL](https://github.com/chipsalliance/firrtl) (Flexible Intermediate Representation for RTL), a hardware compiler framework that performs optimizations of Chisel-generated circuits and supports custom user-defined circuit transformations.
 
-#### to be short, Chisel is a tool for generating verilog using Scala
+#### To be short, Chisel is a tool for generating verilog using Scala
 
 #### Scala is almost same with kotlin, they have so many overlapping points in the view of grammar, coding style, and so on. so Chisel can be easy way to generate Hardware RTL for Software engineer
 
@@ -25,6 +25,18 @@ the Lec pages of this repository would be help to approach the gradleRocketchip.
 
 and if you are not familiar with basic theories and grammar of Scala, this [github(agile-hw)](https://github.com/agile-hw/lectures/) will be helpful!!  
 
+## 3. Lecture Link
+
+[Lec 01 - RocketChip build guide to generate Verilog](lec01-SettingGuide.md)
+<br>
+[Lec 02 - Build file and Check the wave form using AysncQueue Example](lec02-AsyncQueue.md)
+<br>
+[Lec 03 - Code Following using Queue Example ](lec03-Queue.md)
 
 
+
+<br>
+<br>
+<br>
+<br>
 

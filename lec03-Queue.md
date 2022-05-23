@@ -139,8 +139,9 @@ example package path :scala/chiselExample/exampleModule/queue/agilehwQueue
    - Data type is UInt - What about arbitrary data?
 
 
-  
-#### code guide of V6
+<br><br>
+
+## Code guide of V6
 
 scala/chiselExample/exampleModule/queue/agilehwQueue/QueueV6.scala
 

@@ -27,8 +27,6 @@ and if you are not familiar with basic theories and grammar of Scala, this [gith
 
 ## 3. Lecture Link
 
-<br>
-
 [Lec 01 - RocketChip build guide to generate Verilog](lec01-SettingGuide.md)
 <br><br>
 [Lec 02 - Build file and Check the wave form using AysncQueue Example](lec02-AsyncQueue.md)

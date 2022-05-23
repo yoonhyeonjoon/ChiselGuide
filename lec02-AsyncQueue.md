@@ -3,7 +3,7 @@
 
 guide Repository of this lecture : https://github.com/yoonhyeonjoon/gradleRocketchip
 
-example package path :scala/chiselExample/exampleModule/queue/asyncExample/runner/AsyncCrossing.scala
+example package path :scala/chiselExample/queue/asyncExample/runner/AsyncCrossing.scala
 
 <br/> 
 
@@ -234,7 +234,7 @@ object ClockDivider {
 
 ## 4.  Transmitter/Reciever module
 
-package path :scala/chiselExample/exampleModule/queue/asyncExample/TransmitModule.scala
+package path :scala/chiselExample/queue/asyncExample/TransmitModule.scala
 
 <br/>
 

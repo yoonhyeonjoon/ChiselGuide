@@ -6,7 +6,7 @@ All of the design of this page originated from
 https://github.com/agile-hw/lectures/
 
 
-example package path :scala/chiselExample/exampleModule/queue/agilehwQueue
+example package path :scala/chiselExample/queue/agilehwQueue
 
 ### V0 - First Attempt at Queue
 
@@ -143,7 +143,7 @@ example package path :scala/chiselExample/exampleModule/queue/agilehwQueue
 
 ## Code guide of V6
 
-scala/chiselExample/exampleModule/queue/agilehwQueue/QueueV6.scala
+scala/chiselExample/queue/agilehwQueue/QueueV6.scala
 
 ```scala
 
@@ -193,5 +193,20 @@ scala/chiselExample/exampleModule/queue/agilehwQueue/QueueV6.scala
 3. the value **maybeFull** can discern empty state with full state (both states have same condition of enqIndex == deqIndex)   
 4. **enq.ready/deq.valid** depends on full and empty state
 5. whenever fired, index increases for each channel(io.deq, io.enq). and each states should consider of maybeFull state when the time enqIndex and deqIndex are same.
+
+### V7 - Generics for Data
+
+scala/chiselExample/queue/agilehwQueue/QueueV7.scala
+
+``` scala
+  class QueueV7[T <: chisel3.Data](numEntries: Int, gen: T, pipe: Boolean=true){
+    ...
+  }
+```
+
+Data types can be defined as above.
+
+Then, You can make module like more generalized form
+
 
 <br><br><br>

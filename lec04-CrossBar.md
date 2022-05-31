@@ -206,7 +206,7 @@ for (op <- 0 until numOuts) {
 <br>
 
 
-#### If you elaborating the codes Chisel Compiler generate this [XbarV1Verilog.v](XbarV1Verilog.txt).
+#### If you elaborating the codes Chisel Compiler generate this [XbarV1Verilog.v](lec04/XbarV1Verilog.txt).
 #### you made some well operated bulky logics(343lines) with less effort!!!    
 
 <br><br><br>

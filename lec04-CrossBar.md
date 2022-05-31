@@ -122,6 +122,8 @@ class XBarV1(numIns: Int, numOuts: Int, width: Int) extends Module {
 <h5 align="center">  XBarV1 Full code </h5>
 
 
+<br><br>
+
 ### Analysis of the XBarV1 Code
 
 

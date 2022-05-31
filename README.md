@@ -25,17 +25,16 @@ the Lec pages of this repository would be help to approach the gradleRocketchip.
 
 and if you are not familiar with basic theories and grammar of Scala, this [github(agile-hw)](https://github.com/agile-hw/lectures/) will be helpful!!  
 
+<br> 
+
 ## 3. Lecture Link
 
-[Lec 01 - RocketChip build guide to generate Verilog](lec01-SettingGuide.md)
-<br><br>
-[Lec 02 - Build file and Check the wave form using AysncQueue Example](lec02-AsyncQueue.md)
-<br><br>
-[Lec 03 - Code Following using Queue Example ](lec03-Queue.md)
+- [Lec 01 - RocketChip build guide to generate Verilog(2022-05-11)](lec01-SettingGuide.md)
+- [Lec 02 - Build file and Check the wave form using AysncQueue Example(2022-05-13)](lec02-AsyncQueue.md)
+- [Lec 03 - Code Following using Queue Example(2022-05-23)](lec03-Queue.md)
+- [Lec 04 - CrossBar Implementation(2022-05-31)](lec04-CrossBar.md)
 
 
-
-<br>
 <br>
 <br>
 <br>

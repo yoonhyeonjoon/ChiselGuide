@@ -96,7 +96,7 @@ class XBarV1IO(numIns: Int, numOuts: Int, width: Int) extends Bundle {
 
 Overall structure of CrossBar V1 is like below sketch.
 3 inputs are managed by each RRArbiter and decoupled each outputs which is linked with XBarV1's each outputs
-<p align="center"> <img src="lec04/XbarV1.png" /> <b> Crossbar V1 schematic </b> </p>
+<p align="center"> <img src="lec04/XbarV1.png" /> <br> Crossbar V1 schematic  </p>
 
 
 <br><br><br>

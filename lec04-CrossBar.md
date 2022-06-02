@@ -206,11 +206,82 @@ for (op <- 0 until numOuts) {
 <br>
 
 
-#### If you elaborating the codes Chisel Compiler generate this [XbarV1Verilog.v](lec04/XbarV1Verilog.v).
+#### If you elaborating the codes, Chisel Compiler generates this [XbarV1Verilog.v](lec04/XbarV1Verilog.v).
 #### you made some well operated bulky logics(343lines) with less effort!!!    
 
 <br><br><br>
 
-## CrossBar V2
 
-It will be updated soon.
+## CrossBar V2 - refactoring parameters of IO
+
+IO has been refactored in CrossBarV2. CrossBarV1 Bundle takes all of IO signal but it is divided into messages of CrossBarV2(PortIOV2).
+IO in XBarV2 has **ports property** which has the flexibility to determine the size of the vec according to a variable **numHosts** 
+
+### Code Compare V1 IOs with V2 IOs
+
+#### V1 IO parts
+```scala
+class MessageV1(numDests: Int, width: Int) extends Bundle {
+  val addr: UInt = UInt(log2Ceil(numDests+1).W)
+  val data: UInt = UInt(width.W)
+}
+
+class XBarV1IO(numIns: Int, numOuts: Int, width: Int) extends Bundle {
+  val in: Vec[DecoupledIO[MessageV1]] = Vec(numIns, Flipped(Decoupled(new MessageV1(numOuts, width))))
+  val out: Vec[DecoupledIO[MessageV1]] = Vec(numOuts, Decoupled(new MessageV1(numOuts, width)))
+}
+
+class XBarV1(numIns: Int, numOuts: Int, width: Int) extends Module {
+  val io: XBarV1IO = IO(new XBarV1IO(numIns, numOuts, width))
+```
+
+#### V2 IO parts
+```scala
+   
+case class XBarParamsV2(numHosts: Int, payloadSize: Int) {
+  def addrBitW() = log2Ceil(numHosts + 1)
+}
+
+class MessageV2(p: XBarParamsV2) extends Bundle {
+  val addr: UInt = UInt(p.addrBitW().W)
+  val data: UInt = UInt(p.payloadSize.W)
+}
+
+class PortIOV2(p: XBarParamsV2) extends Bundle {
+  val in: DecoupledIO[MessageV2] = Flipped(Decoupled(new MessageV2(p)))
+  val out: DecoupledIO[MessageV2] = Decoupled(new MessageV2(p))
+}
+
+class XBarV2(p: XBarParamsV2) extends Module {
+  val io = IO(new Bundle {
+    val ports   = Vec(p.numHosts, new PortIOV2(p))
+  }) ...
+
+```
+
+## CrossBar V3 - apply generic Type to Message data type
+
+Apply generic type to extend the extensibility of data type
+
+#### V3 IO parts
+```scala
+case class XBarParamsV3[T <: chisel3.Data](numHosts: Int, payloadT: T) {
+  def addrBitW(): Int = log2Ceil(numHosts + 1)
+}
+
+class MessageV3[T <: chisel3.Data](p: XBarParamsV3[T]) extends Bundle {
+  val addr: UInt = UInt(p.addrBitW().W)
+  val data: T = p.payloadT
+}
+
+class PortIOV3[T <: chisel3.Data](p: XBarParamsV3[T]) extends Bundle {
+  val in: DecoupledIO[MessageV3[T]] = Flipped(Decoupled(new MessageV3(p)))
+  val out: DecoupledIO[MessageV3[T]] = Decoupled(new MessageV3(p))
+}
+
+class XBarV3[T <: chisel3.Data](p: XBarParamsV3[T]) extends Module {
+  class XBarBundle extends Bundle{
+    val ports: Vec[PortIOV3[T]] = Vec(p.numHosts, new PortIOV3(p))
+  }
+  val io: XBarBundle = IO(new XBarBundle())
+```

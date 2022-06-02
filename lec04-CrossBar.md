@@ -17,8 +17,8 @@ example package path :scala/chiselExample/crossBar
 
  ## Message form
 <br>
-<p align="center"> <img src="lec04/MessageV1.png" /> </p>
-<h5 align="center"> MessageV1 </h5>
+<p align="center"> <img src="lec04/MessageV1.png"/> <br> <b> MessageV1 </b> </p>
+
 
 MessageV1 would be subtype of chisel3.Data extending Bundle and It would be a unit of communicating with Chisel blocks
 
@@ -33,10 +33,10 @@ class MessageV1(numDests: Int, width: Int) extends Bundle {
 
 ### Arbiter form
 
-<p align="center"> <img src="lec04/RRArbiter.png" /> </p>
-<h5 align="center">  RRArbiter(3 to 1) </h5>
 
+<p align="center"> <img src="lec04/RRArbiter.png" /> <br> <b> RRArbiter(3 to 1) </b> </p>
 
+<br>
 
 RRArbiter is inner method of Chisel
 
@@ -81,8 +81,7 @@ module RRArbiter(
 
 ### CrossBar IO
 
-<p align="center"> <img src="lec04/XbarV1IO.png" /> </p>
-<h5 align="center">  XbarV1IO(3 to 4) </h5>
+<p align="center"> <img src="lec04/XbarV1IO.png" /> <b> XbarV1IO(3 to 4) </b> </p>
 
 ```scala
 class XBarV1IO(numIns: Int, numOuts: Int, width: Int) extends Bundle {
@@ -97,8 +96,8 @@ class XBarV1IO(numIns: Int, numOuts: Int, width: Int) extends Bundle {
 
 Overall structure of CrossBar V1 is like below sketch.
 3 inputs are managed by each RRArbiter and decoupled each outputs which is linked with XBarV1's each outputs
-<p align="center"> <img src="lec04/XbarV1.png" /> </p>
-<h5 align="center">  Crossbar V1 schematic </h5>
+<p align="center"> <img src="lec04/XbarV1.png" /> <b> Crossbar V1 schematic </b> </p>
+
 
 <br><br><br>
 
@@ -141,10 +140,9 @@ val io: XBarV1IO = IO(new XBarV1IO(numIns = 3, numOuts = 4,  width = 2))
   - <span style="color: #008000"> <b> (Remember) </b>  </span> Therefore, Flipped-Decoupled is usually used to be inputs form of modules, and Decoupled be outputs form. 
 
   
-<p align="center"> <img src="lec04/SetIOBundles.png" /> </p>
+<p align="center"> <img src="lec04/SetIOBundles.png" /> <b> Ports attached in XbarV1 </b> </p>
 
-<h5 align="center">  Ports attached in XbarV1 </h5>
-
+<br>
 <br>
 
 #### Step 2. Round Robin Arbiter(RRArbiter) in the XBarV1
@@ -155,9 +153,10 @@ val arbs: Seq[RRArbiter[MessageV1]] = Seq.fill(numOuts)(Module(new RRArbiter(new
 - RR arbiter is inner method in the Chisel package. So if you want to use RRarbiteration in its simpler form, you don't need to reimplement it.
 - 4 RR arbiter will mediate 3 data inputs to 4 outputs by valid and bit-address signal. It is implemented in the next step.
 
-<p align="center"> <img src="lec04/RRarbiterAppended.png" /> </p>
-<h5 align="center"> 4 RR arbiter( 3-inputs / 1-output ) attached in XbarV1 </h5>
+<p align="center"> <img src="lec04/RRarbiterAppended.png" /> <b> 4 RR arbiter( 3-inputs / 1-output ) attached in XbarV1 </b> </p>
 
+<br>
+<br>
 
 #### Step 3. the Ready signal implementation
 ```scala
@@ -171,9 +170,9 @@ for (ip <- 0 until numIns) {
 - reduce { _ || _ } congregates Seq[Bool] with OR operation and transfer it to in.in(ip).ready signal by operator **io.in(ip).ready :=**
 - You can check the connecting state by below Sketch. coloured wire would be help to understand it.
 
-<p align="center"> <img src="lec04/readySignal.png" /> </p>
-<h5 align="center"> ready signal between XBarV1 inputs and RR-Arbiters is implemented </h5>
+<p align="center"> <img src="lec04/readySignal.png" /> <b> ready signal between XBarV1 inputs and RR-Arbiters is implemented </b> </p>
 
+<br><br>
 
 #### Step 4. the Bits/Valid signals implementation
 
@@ -196,12 +195,11 @@ for (op <- 0 until numOuts) {
 - the sentence **io.out(op) <> arbs(op).io.out** is also full connecting 4RRArbiter with 4Decoupled Outputs at once
 - You can also check the connecting state by below Sketch. coloured wire would be help to understand it.
 
-<p align="center"> <img src="lec04/bitvalidsignal_implementation1.png" /> </p>
-<h5 align="center"> bit/valid signal implementation for only arbs(0) </h5>
+<p align="center"> <img src="lec04/bitvalidsignal_implementation1.png" /> <b>bit/valid signal implementation for only arbs(0)</b> </p>
 
+<br>
 
-<p align="center"> <img src="lec04/bitvalidsignal_implementation2.png" /> </p>
-<h5 align="center"> bit/valid signal implementation for all arbs </h5>
+<p align="center"> <img src="lec04/bitvalidsignal_implementation2.png" /> <b>bit/valid signal implementation for all arbs</b> </p>
 
 <br>
 
@@ -232,7 +230,7 @@ class XBarV1IO(numIns: Int, numOuts: Int, width: Int) extends Bundle {
 }
 
 class XBarV1(numIns: Int, numOuts: Int, width: Int) extends Module {
-  val io: XBarV1IO = IO(new XBarV1IO(numIns, numOuts, width))
+  val io: XBarV1IO = IO(new XBarV1IO(numIns, numOuts, width)) ...
 ```
 
 #### V2 IO parts
@@ -283,5 +281,7 @@ class XBarV3[T <: chisel3.Data](p: XBarParamsV3[T]) extends Module {
   class XBarBundle extends Bundle{
     val ports: Vec[PortIOV3[T]] = Vec(p.numHosts, new PortIOV3(p))
   }
-  val io: XBarBundle = IO(new XBarBundle())
+  val io: XBarBundle = IO(new XBarBundle()) ... 
 ```
+
+<br><br>

@@ -17,7 +17,7 @@ example package path :scala/chiselExample/crossBar
 
  ## Message form
 <br>
-<p align="center"> <img src="lec04/MessageV1.png"/> <br> <b> MessageV1 </b> </p>
+<p align="center"> <img src="lec04/MessageV1.png"/> <br> MessageV1 </p>
 
 
 MessageV1 would be subtype of chisel3.Data extending Bundle and It would be a unit of communicating with Chisel blocks
@@ -34,7 +34,7 @@ class MessageV1(numDests: Int, width: Int) extends Bundle {
 ### Arbiter form
 
 
-<p align="center"> <img src="lec04/RRArbiter.png" /> <br> <b> RRArbiter(3 to 1) </b> </p>
+<p align="center"> <img src="lec04/RRArbiter.png" /> <br> RRArbiter(3 to 1) </p>
 
 <br>
 
@@ -81,7 +81,7 @@ module RRArbiter(
 
 ### CrossBar IO
 
-<p align="center"> <img src="lec04/XbarV1IO.png" /> <b> XbarV1IO(3 to 4) </b> </p>
+<p align="center"> <img src="lec04/XbarV1IO.png" /> <br> XbarV1IO(3 to 4) </p>
 
 ```scala
 class XBarV1IO(numIns: Int, numOuts: Int, width: Int) extends Bundle {
@@ -140,7 +140,7 @@ val io: XBarV1IO = IO(new XBarV1IO(numIns = 3, numOuts = 4,  width = 2))
   - <span style="color: #008000"> <b> (Remember) </b>  </span> Therefore, Flipped-Decoupled is usually used to be inputs form of modules, and Decoupled be outputs form. 
 
   
-<p align="center"> <img src="lec04/SetIOBundles.png" /> <b> Ports attached in XbarV1 </b> </p>
+<p align="center"> <img src="lec04/SetIOBundles.png" /> <br> Ports attached in XbarV1 </p>
 
 <br>
 <br>
@@ -153,7 +153,7 @@ val arbs: Seq[RRArbiter[MessageV1]] = Seq.fill(numOuts)(Module(new RRArbiter(new
 - RR arbiter is inner method in the Chisel package. So if you want to use RRarbiteration in its simpler form, you don't need to reimplement it.
 - 4 RR arbiter will mediate 3 data inputs to 4 outputs by valid and bit-address signal. It is implemented in the next step.
 
-<p align="center"> <img src="lec04/RRarbiterAppended.png" /> <b> 4 RR arbiter( 3-inputs / 1-output ) attached in XbarV1 </b> </p>
+<p align="center"> <img src="lec04/RRarbiterAppended.png" /> <br> 4 RR arbiter( 3-inputs / 1-output ) attached in XbarV1 </p>
 
 <br>
 <br>
@@ -170,7 +170,7 @@ for (ip <- 0 until numIns) {
 - reduce { _ || _ } congregates Seq[Bool] with OR operation and transfer it to in.in(ip).ready signal by operator **io.in(ip).ready :=**
 - You can check the connecting state by below Sketch. coloured wire would be help to understand it.
 
-<p align="center"> <img src="lec04/readySignal.png" /> <b> ready signal between XBarV1 inputs and RR-Arbiters is implemented </b> </p>
+<p align="center"> <img src="lec04/readySignal.png" /> <br> ready signal between XBarV1 inputs and RR-Arbiters is implemented </p>
 
 <br><br>
 
@@ -195,11 +195,11 @@ for (op <- 0 until numOuts) {
 - the sentence **io.out(op) <> arbs(op).io.out** is also full connecting 4RRArbiter with 4Decoupled Outputs at once
 - You can also check the connecting state by below Sketch. coloured wire would be help to understand it.
 
-<p align="center"> <img src="lec04/bitvalidsignal_implementation1.png" /> <b>bit/valid signal implementation for only arbs(0)</b> </p>
+<p align="center"> <img src="lec04/bitvalidsignal_implementation1.png" /> <br>bit/valid signal implementation for only arbs(0) </p>
 
 <br>
 
-<p align="center"> <img src="lec04/bitvalidsignal_implementation2.png" /> <b>bit/valid signal implementation for all arbs</b> </p>
+<p align="center"> <img src="lec04/bitvalidsignal_implementation2.png" /> <br>bit/valid signal implementation for all arbs </p>
 
 <br>
 

@@ -10,7 +10,7 @@ example package path :scala/chiselExample/ringRouter
 When the logic becomes complex and hard to control using only a huge CrossBar, we can design a multi-hop interconnect.
 
 <br>
-<p align="center"> <img src="lec05/multihop.png"/>  <b> Multi-hop interconnect </b> </p>
+<p align="center"> <img src="lec05/multihop.png"/> <br> Multi-hop interconnect </p>
 
 
 ### Ring Network V1

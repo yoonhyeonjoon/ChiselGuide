@@ -14,10 +14,11 @@ Chisel is powered by [FIRRTL](https://github.com/chipsalliance/firrtl) (Flexible
 
 #### Scala is almost same with kotlin, they have so many overlapping points in the view of grammar, coding style, and so on. so Chisel can be easy way to generate Hardware RTL for Software engineer
 
+<br> 
 
 ## 2. What does this page guide for?
 
-this repository is a guide for open library [gradleRocketchip](https://github.com/yoonhyeonjoon/gradleRocketchip)
+this repository is a guide for open library [worldOfChiselScala](https://github.com/yoonhyeonjoon/World-Of-ChiselScala)
 
 gradleRocketchip includes utilized Chisel codes and example codes to understand this grammar. but the modules made without elaborated considering of packaging, so it is some clumsy.   
 
@@ -35,13 +36,11 @@ and if you are not familiar with basic theories and grammar of Scala, this [gith
 - [Lec 04 - CrossBar Implementation(2022-05-31)](lec04-CrossBar.md)
 - [Lec 05 - Multi hop Routing (2022-06-02)](lec05-MultihopRouting.md)
 
-      
+<br> 
+ 
 ## 4. Exercising Problem
 
 - [Problem 01 - Wave height Measurer(2022-06-24)](problem01-WaveHeightMeasurer.md)
 
- 
-<br>
-<br>
 <br>
 

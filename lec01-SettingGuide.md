@@ -1,15 +1,14 @@
 # Scala Chisel Lecture 1 
 
 
-Chisel Design 참고 : https://github.com/agile-hw/lectures/
+Chisel Design Reference : https://github.com/agile-hw/lectures/
 
 guide Repository of this lecture : https://github.com/yoonhyeonjoon/gradleRocketchip
 
 ### Setting guide.
 
- #### 방법 1. Gradle로 Rocketchip/Chisel/Firrtl Setting
-    
-    
+ #### Route 1.  Rocketchip/Chisel/Firrtl Setting using Gradle
+        
 * path : ./build.gradle.kts
 
 ``` gradle
@@ -54,9 +53,10 @@ dependencies {
 
 ```
 
-#### 방법 2. Sbt로 Rocketchip/Chisel/Firrtl Setting
-   
-   
+#### Route 2. Sbt로 Rocketchip/Chisel/Firrtl Setting
+
+reference : sbt repository : https://github.com/kimdh727/rocket-chip-example
+
 * 2-1 ./project/plugins.sbt
    ``` 
     addSbtPlugin("com.typesafe.sbt" % "sbt-ghpages" % "0.6.2")
@@ -114,16 +114,7 @@ dependencies {
     ```
     
     
-    
 
-
-위와 같이 build script 작성 후 build를 하게 되면 해당 dependencies를 가져와 implements하게 된다
-
-
-참고 sbt repository : https://github.com/kimdh727/rocket-chip-example
         
 
 
-```python
-
-```

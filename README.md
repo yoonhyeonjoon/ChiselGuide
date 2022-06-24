@@ -33,9 +33,14 @@ and if you are not familiar with basic theories and grammar of Scala, this [gith
 - [Lec 02 - Build file and Check the wave form using AysncQueue Example(2022-05-13)](lec02-AsyncQueue.md)
 - [Lec 03 - Code Following using Queue Example(2022-05-23)](lec03-Queue.md)
 - [Lec 04 - CrossBar Implementation(2022-05-31)](lec04-CrossBar.md)
-- [Lec 05 - Multi hop Routing (2022-06-02)](lec05-MultihopRouting.md)
+  - [Lec 05 - Multi hop Routing (2022-06-02)](lec05-MultihopRouting.md)
 
+      
+## 4. Exercising Problem
+.
+- [Problem 01 - Wave height Measurer(2022-06-24)](problem01-WaveHeightMeasurer.md)
 
+ 
 <br>
 <br>
 <br>

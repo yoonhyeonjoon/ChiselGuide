@@ -96,11 +96,12 @@ import chiselExample.crossBar.{MessageV3, PortIOV3, XBarParamsV3}
 
 //First Implementation of a Ring Network
 class RingRouterV1[T <: chisel3.Data](p: NetworkParams[T], id: Int) extends Module {
-  val io = IO(new Bundle{
-    val in = Flipped(Decoupled(new MessageRouter(p)))
-    val out = Decoupled(new MessageRouter(p))
+  class RingRouterV1Bundle extends Bundle{
+    val in: DecoupledIO[MessageRouter[T]] = Flipped(Decoupled(new MessageRouter(p)))
+    val out: DecoupledIO[MessageRouter[T]] = Decoupled(new MessageRouter(p))
     val host = new PortIORouter(p)
-  })
+  }
+  val io: RingRouterV1Bundle = IO(new RingRouterV1Bundle)
   val forMe: Bool = (io.in.bits.addr === id.U) && io.in.valid
   // INCOMPLETE, but gives spirit
   io.host.in.ready := io.out.ready

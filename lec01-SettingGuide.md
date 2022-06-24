@@ -33,7 +33,7 @@ tasks.withType<ScalaCompile>().configureEach {
         "-Xplugin:" + configurations.scalaCompilerPlugins.get().asPath
     )
 }
-
+ 
 repositories {
     mavenCentral()
     maven(url = "https://repo1.maven.org/maven2/" )

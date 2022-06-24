@@ -1,7 +1,10 @@
-## Chisel Problem-1 : Wave height Measurer 
+
+# Chisel Problem-1 : Wave height Measurer 
 
    
 ![pro1_1.png](pro01_waveheight/pro1_1.png)
+
+## Problem : 
 
 Assume that the "input signal n" is a the measuring device of height of waves at each point
 so if n = 1000, suppose that we can get number of 1000 height of waves from locations.

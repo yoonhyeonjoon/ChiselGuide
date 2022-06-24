@@ -119,7 +119,7 @@ From step1, we first define bundle as below.
 From step2 and step3, we build logics in the module and link ports to connect with out-world as below.
 
 <p align="center">
-  <img src="lec05/v1router.png" />
+  <img src="lec05/v1router.png" style="width: 65%"/>
 </p>
 
 <p align="center"> V1 router design </p>

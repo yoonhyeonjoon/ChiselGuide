@@ -110,7 +110,7 @@ We can practice the flow of design step using NetworkV1.
 From step1, we first define bundle as below.
 
 <p align="center">
-  <img src="lec05/bundle.png" />
+  <img src="lec05/bundle.png"  style="width: 50%"/>
 </p>
 <p align="center"> Bundles </p>
 
@@ -329,8 +329,9 @@ You can check V3 Verilog code as below link this case generated from **new RingN
 <p align="center"> V3 Router design </p>
 
 <p align="center">
-  <img src="lec05/CrossbarV3Simple.png" />
+  <img src="lec05/CrossbarV3Simple.png" style="width: 50%"/>
 </p>
+
 <p align="center"> V3 Crossbar design(simple) </p>
 
 

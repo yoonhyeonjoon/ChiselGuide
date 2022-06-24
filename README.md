@@ -18,9 +18,9 @@ Chisel is powered by [FIRRTL](https://github.com/chipsalliance/firrtl) (Flexible
 
 ## 2. What does this page guide for?
 
-this repository is a guide for open library [worldOfChiselScala](https://github.com/yoonhyeonjoon/World-Of-ChiselScala)
+this repository is a guide for open library [world Of ChiselScala](https://github.com/yoonhyeonjoon/World-Of-ChiselScala)
 
-gradleRocketchip includes utilized Chisel codes and example codes to understand this grammar. but the modules made without elaborated considering of packaging, so it is some clumsy.   
+**world Of ChiselScala** includes utilized Chisel codes and example codes to understand this grammar. but the modules made without elaborated considering of packaging, so it is some clumsy.   
 
 the Lec pages of this repository would be help to approach the gradleRocketchip. 
 

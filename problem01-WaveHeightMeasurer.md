@@ -2,7 +2,7 @@
 # Chisel Problem-1 : Wave height Measurer 
 
    
-![pro1_1.png](pro01_waveheight/pro1_1.png)
+
 
 ## Problem : 
 
@@ -14,6 +14,9 @@ and assume that the height "x" can be from 0 to 999.
 "Output 1" outputs the average of Wave Height.
 (At this time, Volume Option means the cumulative average coefficient in the time domain)
 
+
+![pro1_1.png](pro01_waveheight/pro1_1.png)
+
 For example, if the volume option is 4 and the number of inputs is 3 instead of 1000, the output example is as follows:
 
 depends on the way of calculating algorithm, do not need to get outputs very next step. there can exist gap between the input timing and output timing
@@ -23,6 +26,8 @@ depends on the way of calculating algorithm, do not need to get outputs very nex
 
 
 Below code is a sample templete, you can reference of this form.
+
+<br><br>
 
 ### templete form
 
@@ -52,11 +57,14 @@ class VolumeIntegrator(volumeIntegratorParams:VolumeIntegratorParams) extends Mo
 }
 ```
 
+<br>
+
 ### hint
 you can use GripperInDelayNCycles module(https://github.com/yoonhyeonjoon/World-Of-ChiselScala / package functional.delayer)
 or make reg buffer module to hold cumulative values
 
-<br>
+<br><br>
+
 and You can use peek/poke test to check your algorithm operating.
 
 ```scala

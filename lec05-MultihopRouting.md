@@ -110,7 +110,7 @@ We can practice the flow of design step using NetworkV1.
 From step1, we first define bundle as below.
 
 <p align="center">
-  <img src="lec05/bundle.png"  style="width: 50%"/>
+  <img src="lec05/bundle.png"  style="width: 35%"/>
 </p>
 <p align="center"> Bundles </p>
 
@@ -124,6 +124,8 @@ From step2 and step3, we build logics in the module and link ports to connect wi
 
 <p align="center"> V1 router design </p>
 
+<br>
+
 The core of router logic is that there are two ways of inputs and two ways of outputs.
 The router can get the data from other router or outter world by "host".
 The logic controls which data should be transferred to.
@@ -136,6 +138,8 @@ We can build network using v1 router as a network unit as below.
 </p>
 
 <p align="center"> V1 network design </p>
+
+<br>
 
 each router can easily connected by foldLeft, foldLeft keyword can be used as calling to each router with paired very near side one.
 
@@ -171,6 +175,8 @@ the form is like this.
 </p>
 
 <p align="center"> V3 network design </p>
+
+<br>
 
 Here model looks simple when we look at it from the top.
 and It would be same if we look at basic model which is the parts of V3.

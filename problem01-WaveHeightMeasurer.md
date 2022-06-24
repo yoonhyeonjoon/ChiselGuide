@@ -15,15 +15,18 @@ and assume that the height "x" can be from 0 to 999.
 (At this time, Volume Option means the cumulative average coefficient in the time domain)
 
 
-![pro1_1.png](pro01_waveheight/pro1_1.png)
+<p align="center">
+  <img src="pro01_waveheight/pro1_1.png"  style="width: 65%"/>
+</p>
+
 
 For example, if the volume option is 4 and the number of inputs is 3 instead of 1000, the output example is as follows:
 
 depends on the way of calculating algorithm, do not need to get outputs very next step. there can exist gap between the input timing and output timing
 
-
-![pro1_2.png](pro01_waveheight/pro1_2.png)
-
+<p align="center">
+  <img src="pro01_waveheight/pro1_2.png"  style="width: 100%"/>
+</p>
 
 Below code is a sample templete, you can reference of this form.
 

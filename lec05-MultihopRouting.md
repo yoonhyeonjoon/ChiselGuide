@@ -185,6 +185,8 @@ The thing I believe is that if we design a module, we have to make the basic uni
 After we extend it to be large scale one and assemble large scale module with other parts, viewing top model also should be simple one.
 In other words, whenever we abstract model with any scale, The design would be better to be acceptable as simple one.
 
+
+
 ```scala
 import chisel3._
 import chisel3.util.RRArbiter
@@ -347,4 +349,37 @@ You can check V3 Verilog code as below link this case generated from **new RingN
 <p align="center"> V3 Crossbar design </p>
 
 
-To be continue.
+At first, port Vec bundle gets Vec[RingPortIO[T]] and it is set to 3
+```scala
+class RingRounterBundleV3 extends Bundle {
+  val ports: Vec[RingPortIO[T]] = Vec(3, new RingPortIO(p)) // port(2) for host
+}
+```
+
+port(0) means backward, port(1) means forward and port(2) means host. 
+If you want expand the structure and link with more ports such as check board linker, you can just adjust it and make link with that.
+
+To use foldLeft and chaining with it, there is one of important thing to remember. That is the situation of combinational loop.
+Combination loop condition is... kind of race competition or dead-lock in hardware level. 
+so if there are 3 blocks A, B, C and point out from tail to tail at a clock, it gives combinational loop error. A => B => C => A ...
+because this logic can't know which state is stable for each block at a clock.
+
+so to use foldLeft keyword, you have to keep in mind of this situation occurs when you use it were it not for considering of timing.
+to evade this condition, we can use register and keep the bits before transfer to next hop as below.
+
+```scala
+      val outReady0    =  RegNext(curr.io.ports(0).out.ready)
+      val outValid0    =  RegNext(curr.io.ports(0).out.valid)
+      val outBitsAddr0 =  RegNext(curr.io.ports(0).out.bits.addr)
+      val outBitsData0 =  RegNext(curr.io.ports(0).out.bits.data)
+
+      val inReady0     =  RegNext(curr.io.ports(0).in.ready)
+      val inValid0     =  RegNext(curr.io.ports(0).in.valid)
+      val inBitsAddr0  =  RegNext(curr.io.ports(0).in.bits.addr)
+      val inBitsData0  =  RegNext(curr.io.ports(0).in.bits.data)
+```
+
+
+
+
+
